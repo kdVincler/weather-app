@@ -53,12 +53,18 @@ const Activities = ({globalCity}) => {
 
     return(
         <div className="rightTile">
-            {globalCity && activityData ? (
+            {globalCity ? (
                 <>
                     <h1 className="heaader">Local activities around {globalCity}</h1>
-                    <Activity activityData={activityData.features[0]} />
-                    <Activity activityData={activityData.features[1]} />
-                    <Activity activityData={activityData.features[2]} />
+                    {activityData ? (
+                        <>
+                            <Activity activityData={activityData.features[0]} />
+                            <Activity activityData={activityData.features[1]} />
+                            <Activity activityData={activityData.features[2]} />
+                        </>
+                    ) : (
+                        <p>Loading activities data...</p>
+                    )}
                 </>
             ): (
                 <>
