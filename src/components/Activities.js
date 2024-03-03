@@ -57,22 +57,53 @@ const Activities = ({globalCity}) => {
                 <>
                     <h1 className="heaader">Local activities around <br/> {globalCity}</h1>
                     {activityData ? (
-                        // I would like to add a try and catch here, but for some reason everything breaks 
-                        // and I cannot paste the calls for the Actovoty component inside the try
-                        <>
-                            <Activity activityData={activityData.features[0]} />
-                            <Activity activityData={activityData.features[1]} />
-                            <Activity activityData={activityData.features[2]} />
-                            <Activity activityData={activityData.features[3]} />
-                        </>
+                        // testing to see that the API returned the expected amount of data
+                        // and handling all expected cases
+                        activityData.features.length === 4 ? (
+                            <>
+                                <Activity activityData={activityData.features[0]} />
+                                <Activity activityData={activityData.features[1]} />
+                                <Activity activityData={activityData.features[2]} />
+                                <Activity activityData={activityData.features[3]} />
+                            </>
+                        ) : (
+                            activityData.features.length === 3 ? (
+                                <>
+                                    <Activity activityData={activityData.features[0]} />
+                                    <Activity activityData={activityData.features[1]} />
+                                    <Activity activityData={activityData.features[2]} />
+                                </>
+                            ) : (
+                                activityData.features.length === 2 ? (
+                                    <>
+                                        <Activity activityData={activityData.features[0]} />
+                                        <Activity activityData={activityData.features[1]} />
+                                    </>
+                                ) : (
+                                    activityData.features.length === 1 ? (
+                                        <>
+                                            <Activity activityData={activityData.features[0]} />
+                                        </>
+                                    ) : (
+                                        activityData.features.length === 0 ? (
+                                            <>
+                                                <p>No activities found. Search again or try a different city.</p>
+                                            </>
+                                        ) : (
+                                            <></>
+                                        )
+                                    )
+                                )
+                            )
+                        )
                     ) : (
-                        <p>Loading activities data...</p>
+                        <p>Search for a city to display activity data.</p>
                     )}
                 </>
             ): (
                 <>
                     <h1 className="heaader">Local activities</h1>
-                    <p>Loading activities data...</p>
+                    <p>Search for a location to get activity data</p>
                 </>
             )}
         </div>
@@ -89,13 +120,13 @@ const Activity = ({activityData}) => {
             {seeMore === true ?(
                 <>
                     <p>
-                        <a href={activityData["properties"]["website"]} target="_blank">Their website</a><br/>
+                        <a href={activityData["properties"]["website"]} target="_blank" rel="noreferrer">Their website</a><br/>
                         Address: {activityData["properties"]["formatted"]}<br/>
                     </p>
-                    <a className="toggle" onClick={() => {setSeeMore(false)}}>See less</a>
+                    <button className="toggle" onClick={() => {setSeeMore(false)}}>See less</button>
                 </>
             ) : (
-                <a className="toggle" onClick={() => {setSeeMore(true)}}>See more</a>
+                <button className="toggle" onClick={() => {setSeeMore(true)}}>See more</button>
             )}
             
         </section>

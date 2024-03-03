@@ -37,4 +37,7 @@ hr {
     color: #F27D42;
     text-decoration-line: underline;
     font-weight: bolder;
+    background: none;
+    border: none;
+    padding: 0;
 }
