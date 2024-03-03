@@ -35,7 +35,7 @@ const Activities = ({globalCity}) => {
     const fetchActivities = async () => {
         try {
             const response = await axios.get(
-            `https://api.geoapify.com/v2/places?categories=entertainment.activity_park&filter=circle:${lon},${lat},10000&bias=proximity:${lon},${lat}&limit=3&apiKey=5a932255cafc4521aa5c1e3181469ec4
+            `https://api.geoapify.com/v2/places?categories=entertainment.activity_park&filter=circle:${lon},${lat},5000&bias=proximity:${lon},${lat}&limit=4&apiKey=5a932255cafc4521aa5c1e3181469ec4
             `
             );
             {/* This is Konrad's API key, make sure to replace it with your own. (or better yet, implement env files for API keys) */}
@@ -55,12 +55,15 @@ const Activities = ({globalCity}) => {
         <div className="rightTile">
             {globalCity ? (
                 <>
-                    <h1 className="heaader">Local activities around {globalCity}</h1>
+                    <h1 className="heaader">Local activities around <br/> {globalCity}</h1>
                     {activityData ? (
+                        // I would like to add a try and catch here, but for some reason everything breaks 
+                        // and I cannot paste the calls for the Actovoty component inside the try
                         <>
                             <Activity activityData={activityData.features[0]} />
                             <Activity activityData={activityData.features[1]} />
                             <Activity activityData={activityData.features[2]} />
+                            <Activity activityData={activityData.features[3]} />
                         </>
                     ) : (
                         <p>Loading activities data...</p>
@@ -78,11 +81,23 @@ const Activities = ({globalCity}) => {
 }
 
 const Activity = ({activityData}) => {
+    const [seeMore, setSeeMore] = useState(false);
     return(
         <section className="activityData">
             <hr></hr>
             <h2>{activityData["properties"]["name"]}</h2>
-            <p>Address: {activityData["properties"]["formatted"]}</p>
+            {seeMore === true ?(
+                <>
+                    <p>
+                        <a href={activityData["properties"]["website"]} target="_blank">Their website</a><br/>
+                        Address: {activityData["properties"]["formatted"]}<br/>
+                    </p>
+                    <a className="toggle" onClick={() => {setSeeMore(false)}}>See less</a>
+                </>
+            ) : (
+                <a className="toggle" onClick={() => {setSeeMore(true)}}>See more</a>
+            )}
+            
         </section>
     )
 }

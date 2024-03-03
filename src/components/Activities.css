@@ -8,10 +8,33 @@
     flex-shrink: 0;
 
     width: 25em;
-    height: 45em;
-    padding: 10px;
+    /*height: 45em;*/
+    padding-bottom: 2em;
+    padding: 1em;
     gap: 10px;
 
     border-radius: 30px;
     background: #96FFFF;
+}
+
+hr {
+    width: 90%;
+    height: 0.15em;
+    background: #022449;
+    border: 1px solid #022449;
+}
+
+.activityData {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.activityData h2{
+    margin-bottom: 0.5em;
+}
+
+.toggle{
+    color: #F27D42;
+    text-decoration-line: underline;
+    font-weight: bolder;
 }
