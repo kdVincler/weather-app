@@ -13,7 +13,7 @@ const Activities = ({globalCity}) => {
             `https://api.geoapify.com/v1/geocode/search?text=${globalCity}&format=json&apiKey=5a932255cafc4521aa5c1e3181469ec4
             `
             );
-            {/* This is Konrad's API key, make sure to replace it with your own. */}
+            // This is Konrad's API key, make sure to replace it with your own.
             setLon(response.data.results[0].lon);
             setLat(response.data.results[0].lat);
             // console.log("fetchCoords retuned:");
