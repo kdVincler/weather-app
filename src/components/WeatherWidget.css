@@ -1,0 +1,104 @@
+.container{
+    display: flex;
+}
+.back{
+    background-color: #022449;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    gap: 1rem;
+    height: 29rem;
+    width:  53rem;
+    margin-top: 4rem;
+    margin-left: 8rem;
+}
+
+.results{
+    border-radius: 2rem;
+    width: 93%;
+    height: 74%;
+    margin: 0 auto;
+    background-image: linear-gradient(180deg,rgb(94, 136, 200), aqua);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wIcon{
+    height: 20rem;
+    width: auto;
+}
+
+
+@media (max-width: 1300px){
+    .back{
+        height: auto;
+        width:  48rem;
+        margin-top: 3rem;
+        margin-left: 4rem;
+        padding-bottom: 1.5rem;
+    }
+
+}
+
+@media (max-width: 1200px){
+    .back{
+        height: auto;
+        width:  44rem;
+
+    }
+
+}
+
+
+@media (max-width: 1100px){
+    .back{
+        height: auto;
+        width:  40rem;
+        margin-left: 3rem;
+    }
+
+}
+@media (max-width: 980px){
+    .back{
+        align-self: center;
+        height: auto;
+        width:  50rem;
+        margin-left: 0;
+    }
+    .container{
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+@media (max-width: 900px){
+    .back{
+        align-self: center;
+        height: auto;
+        width:  47rem;
+
+    }
+}
+@media (max-width: 800px){
+    .back{
+        height: auto;
+        width:  43rem;
+
+    }
+}
+@media (max-width: 700px){
+    .back{
+        height: auto;
+        width:  37rem;
+
+    }
+}
+@media (max-width: 600px){
+    .back{
+        height: auto;
+        width:  33rem;
+
+    }
+}
