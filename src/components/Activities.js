@@ -5,6 +5,7 @@ import './Activities.css';
 const Activities = ({globalCity}) => {
     const [lon, setLon] = useState(null)
     const [lat, setLat] = useState(null)
+    const [placeID, setPlaceID] = useState(null)
     const [activityData, setActivityData] = useState(null);
 
     const fetchCoords = async () => {
@@ -16,6 +17,8 @@ const Activities = ({globalCity}) => {
             // This is Konrad's API key, make sure to replace it with your own.
             setLon(response.data.results[0].lon);
             setLat(response.data.results[0].lat);
+            setPlaceID(response.data.results[0].place_id);
+            //console.log(response.data.results[0].place_id)
             // console.log("fetchCoords retuned:");
             // console.log(response.data); // outputs weather data to console log
             // console.log("fetchCoords said lon is:");
@@ -35,10 +38,11 @@ const Activities = ({globalCity}) => {
     const fetchActivities = async () => {
         try {
             const response = await axios.get(
-            `https://api.geoapify.com/v2/places?categories=entertainment.activity_park&filter=circle:${lon},${lat},5000&bias=proximity:${lon},${lat}&limit=4&apiKey=5a932255cafc4521aa5c1e3181469ec4
-            `
+            /*`https://api.geoapify.com/v2/places?categories=entertainment.activity_park&filter=circle:${lon},${lat},5000&bias=proximity:${lon},${lat}&limit=4&apiKey=5a932255cafc4521aa5c1e3181469ec4
+            ` */
+            `https://api.geoapify.com/v2/places?categories=entertainment.activity_park&filter=place:${placeID}&bias=proximity:${lon},${lat}&limit=4&apiKey=5a932255cafc4521aa5c1e3181469ec4`
             );
-            {/* This is Konrad's API key, make sure to replace it with your own. (or better yet, implement env files for API keys) */}
+            // This is Konrad's API key, make sure to replace it with your own. (or better yet, implement env files for API keys)
             setActivityData(response.data)
             console.log(response.data)
         }
@@ -59,42 +63,12 @@ const Activities = ({globalCity}) => {
                     {activityData ? (
                         // testing to see that the API returned the expected amount of data
                         // and handling all expected cases
-                        activityData.features.length === 4 ? (
-                            <>
-                                <Activity activityData={activityData.features[0]} />
-                                <Activity activityData={activityData.features[1]} />
-                                <Activity activityData={activityData.features[2]} />
-                                <Activity activityData={activityData.features[3]} />
-                            </>
-                        ) : (
-                            activityData.features.length === 3 ? (
-                                <>
-                                    <Activity activityData={activityData.features[0]} />
-                                    <Activity activityData={activityData.features[1]} />
-                                    <Activity activityData={activityData.features[2]} />
-                                </>
-                            ) : (
-                                activityData.features.length === 2 ? (
-                                    <>
-                                        <Activity activityData={activityData.features[0]} />
-                                        <Activity activityData={activityData.features[1]} />
-                                    </>
-                                ) : (
-                                    activityData.features.length === 1 ? (
-                                        <>
-                                            <Activity activityData={activityData.features[0]} />
-                                        </>
-                                    ) : (
-                                        activityData.features.length === 0 ? (
-                                            <>
-                                                <p>No activities found. Search again or try a different city.</p>
-                                            </>
-                                        ) : (
-                                            <></>
-                                        )
-                                    )
-                                )
+                        activityData.features.length !== 0 ? (
+                            activityData.features.map((feature) => 
+                                <Activity activityData={feature} />
                             )
+                        ) : (
+                            <p>No activities found. Search again or try a different city.</p>
                         )
                     ) : (
                         <p>Search for a city to display activity data.</p>
