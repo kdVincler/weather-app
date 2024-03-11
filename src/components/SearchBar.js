@@ -26,7 +26,7 @@ function SearchBar({onCitySubmit}) {
             onChange={handleInputChange}
             />
             <button type="submit" className='searchButton'>
-                <img src={icon} alt='icon' />
+                <img src={icon} alt='search' />
             </button>
         </form>
     );

@@ -75,27 +75,27 @@ const Results = ({city, setGlobalCity}) => {
                     <div className="data">
                         <div className="card"> 
                             <p className="card_title">Temperature</p>
-                            <img src={thermometer} className='thermometer'></img>
+                            <img src={thermometer} alt="temperature" className='thermometer'></img>
                             <p className="temp_text">{weatherData.main.temp}&deg;C</p>
                         </div>
                         <div className="card"> 
                             <p className="card_title">Description</p>
-                            <img src={`https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} className='desc_icon'></img>
+                            <img alt="description" src={`https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} className='desc_icon'></img>
                             <p className="desc_text" >{splitWords(weatherData.weather[0].description)[0]} <br/>{splitWords(weatherData.weather[0].description)[1]} </p>
                         </div>
                         <div className="card"> 
                             <p className="card_title">Humidity</p>
-                            <img src={humidity} className='humidity'></img>
+                            <img src={humidity} className='humidity' alt="humidity"></img>
                             <p className="temp_text">{weatherData.main.humidity}%</p>
                         </div>
                         <div className="card"> 
                             <p className="card_title">Pressure</p>
-                            <img src={pressure} className='pressure'></img>
+                            <img src={pressure} className='pressure' alt="pressure"></img>
                             <p className="temp_text">{weatherData.main.pressure} mb</p>
                         </div>
                         <div className="card"> 
                             <p className="card_title">Wind</p>
-                            <img src={wind} className='wind'></img>
+                            <img src={wind} className='wind' alt="wind"></img>
                             <p className="wind_div">{weatherData.wind.speed} m/s<br/> {degreeToCompass(weatherData.wind.deg)} </p>
                         </div>
                     </div>
@@ -103,7 +103,7 @@ const Results = ({city, setGlobalCity}) => {
                 </section>
             ) : (
                 <section>
-                    <img src={wIcon} className='wIcon'></img>
+                    <img src={wIcon} className='wIcon' alt="loading"></img>
                 </section>
 
             )
