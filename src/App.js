@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import Activities from './components/Activities';
 import Weather from './components/Weather';
+import WeatherWidget from './components/WeatherWidget';
 
 function App() {
   // globalCity state is here, so outher components have access to it 
@@ -19,8 +20,10 @@ function App() {
         if you want your actual react components to run here, then import them and call them in the div that this h1 and paragraph is. (I left a comment in the code too)
         <br />
       </p>
-      */}
+      
       <Weather setGlobalCity={setGlobalCity}/>
+      */}
+      <WeatherWidget setGlobalCity={setGlobalCity}/>
       <Activities globalCity={globalCity} />
     </div>
   );

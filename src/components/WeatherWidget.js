@@ -1,16 +1,22 @@
 
 import './WeatherWidget.css';
 import SearchBar from './SearchBar';
-import wIcon from './wIcon.svg';
+import Results from './Results';
+import React, { useState } from 'react';
 
-function WeatherWidget() {
+
+const WeatherWidget = ({setGlobalCity}) => {
+    const [city, setCity] = useState('');
+
+    const handleCitySubmit = (newCity) => {
+        setCity(newCity);
+    };
+
     return(
         <div className='container'>
             <div className='back'>
-                <SearchBar />
-                <div className='results'>
-                    <img src={wIcon} className='wIcon'/>
-                </div>
+                <SearchBar onCitySubmit={handleCitySubmit}/>
+                <Results city={city} setGlobalCity={setGlobalCity}/>
             </div>
 
         </div>
