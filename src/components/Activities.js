@@ -3,10 +3,10 @@ import axios from "axios";
 import './Activities.css';
 
 const Activities = ({globalCity}) => {
-    const [lon, setLon] = useState(null)
-    const [lat, setLat] = useState(null)
-    const [placeID, setPlaceID] = useState(null)
-    const [activityData, setActivityData] = useState(null);
+    const [lon, setLon] = useState(null) // longtitude variable
+    const [lat, setLat] = useState(null) // latitude variable
+    const [placeID, setPlaceID] = useState(null) // placeID variable
+    const [activityData, setActivityData] = useState(null); // Return from the API with activities for the given location
 
     const fetchCoords = async () => {
         try {
@@ -18,7 +18,9 @@ const Activities = ({globalCity}) => {
             setLon(response.data.results[0].lon);
             setLat(response.data.results[0].lat);
             setPlaceID(response.data.results[0].place_id);
-            //console.log(response.data.results[0].place_id)
+
+            // DEBUGGING CODE
+            // console.log(response.data.results[0].place_id)
             // console.log("fetchCoords retuned:");
             // console.log(response.data); // outputs weather data to console log
             // console.log("fetchCoords said lon is:");
@@ -33,7 +35,7 @@ const Activities = ({globalCity}) => {
 
     useEffect(() => {
         fetchCoords();
-    }, [globalCity]);
+    }, [globalCity]); // any time the city that is searched for changes, fethch it's coordinates
 
     const fetchActivities = async () => {
         try {
@@ -43,6 +45,7 @@ const Activities = ({globalCity}) => {
             `https://api.geoapify.com/v2/places?categories=entertainment.activity_park&filter=place:${placeID}&bias=proximity:${lon},${lat}&limit=4&apiKey=5a932255cafc4521aa5c1e3181469ec4`
             );
             // This is Konrad's API key, make sure to replace it with your own. (or better yet, implement env files for API keys)
+            // it only returns 4 activities at max, so that the app does not become too crowded with data
             setActivityData(response.data)
             console.log(response.data)
         }
@@ -53,28 +56,28 @@ const Activities = ({globalCity}) => {
 
     useEffect(() => {
         fetchActivities();
-    }, [lon, lat]);
+    }, [lon, lat]); // any time coordinates change, fetch corresponding Activity data
 
+    // return the data, formatted and conditionally
     return(
         <div className="rightTile">
-            {globalCity ? (
+            {globalCity ? ( // if global city has value
                 <>
                     <h1 className="heaader">Local activities around <br/> {globalCity}</h1>
-                    {activityData ? (
-                        // testing to see that the API returned the expected amount of data
-                        // and handling all expected cases
-                        activityData.features.length !== 0 ? (
+                    {activityData ? ( // if the API returned something
+                        
+                        activityData.features.length !== 0 ? ( // if the API returned non-zero amounts of activities
                             activityData.features.map((feature) => 
                                 <Activity activityData={feature} />
                             )
-                        ) : (
+                        ) : ( // if the API returned, but with an empty list, which  means there are no activities there
                             <p>No activities found. Search again or try a different city.</p>
                         )
-                    ) : (
+                    ) : ( // if the API has not returned anything yet (no call has been made yet, because user has not searched for a city yet)
                         <p>Search for a city to display activity data.</p>
                     )}
                 </>
-            ): (
+            ): ( // if global city does not have a value (user has not searched for a city yet)
                 <>
                     <h1 className="heaader">Local activities</h1>
                     <p>Search for a location to get activity data</p>
@@ -85,24 +88,17 @@ const Activities = ({globalCity}) => {
     )
 }
 
+// Function to streamline the look of each displayed activity, and make it easier to display as many as we want
 const Activity = ({activityData}) => {
     const [seeMore, setSeeMore] = useState(false);
     return(
         <section className="activityData">
             <hr></hr>
             <h2>{activityData["properties"]["name"]}</h2>
-            {seeMore === true ?(
-                <>
-                    <p>
-                        <a href={activityData["properties"]["website"]} target="_blank" rel="noreferrer">Their website</a><br/>
-                        Address: {activityData["properties"]["formatted"]}<br/>
-                    </p>
-                    <button className="toggle" onClick={() => {setSeeMore(false)}}>See less</button>
-                </>
-            ) : (
-                <button className="toggle" onClick={() => {setSeeMore(true)}}>See more</button>
-            )}
-            
+            <p>
+                <a href={activityData["properties"]["website"]} target="_blank" rel="noreferrer">Their website</a><br/>
+                Address: {activityData["properties"]["formatted"]}<br/>
+            </p>
         </section>
     )
 }
