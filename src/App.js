@@ -22,12 +22,14 @@ function App() {
         <br />
       </p>
       */}
-      <WeatherWidget 
-        setGlobalCity={setGlobalCity}
-        setGlobalWeatherData={setGlobalWeatherData}
-      />
+      <div>
+        <WeatherWidget 
+          setGlobalCity={setGlobalCity}
+          setGlobalWeatherData={setGlobalWeatherData}
+        />
+        <LocalAlarm globalWeatherData={globalWeatherData}/>
+      </div>
       <Activities globalCity={globalCity} />
-      <LocalAlarm globalWeatherData={globalWeatherData}/>
     </div>
   );
 }

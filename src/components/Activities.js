@@ -1,12 +1,15 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import './Activities.css';
+import Lottie from 'lottie-react';
+import Loading from "./Loading.json";
 
 const Activities = ({globalCity}) => {
     const [lon, setLon] = useState(null) // longtitude variable
     const [lat, setLat] = useState(null) // latitude variable
     const [placeID, setPlaceID] = useState(null) // placeID variable
     const [activityData, setActivityData] = useState(null); // Return from the API with activities for the given location
+    const [loading, setLoading] = useState(true)
 
     const fetchCoords = async () => {
         try {
@@ -18,6 +21,7 @@ const Activities = ({globalCity}) => {
             setLon(response.data.results[0].lon);
             setLat(response.data.results[0].lat);
             setPlaceID(response.data.results[0].place_id);
+            setLoading(false);
 
             // DEBUGGING CODE
             // console.log(response.data.results[0].place_id)
@@ -34,6 +38,7 @@ const Activities = ({globalCity}) => {
     };
 
     useEffect(() => {
+        setLoading(true);
         fetchCoords();
     }, [globalCity]); // any time the city that is searched for changes, fethch it's coordinates
 
@@ -47,6 +52,7 @@ const Activities = ({globalCity}) => {
             // This is Konrad's API key, make sure to replace it with your own. (or better yet, implement env files for API keys)
             // it only returns 4 activities at max, so that the app does not become too crowded with data
             setActivityData(response.data)
+            setLoading(false);
             console.log(response.data)
         }
         catch (error) {
@@ -55,26 +61,34 @@ const Activities = ({globalCity}) => {
     };
 
     useEffect(() => {
+        setLoading(true);
         fetchActivities();
     }, [lon, lat]); // any time coordinates change, fetch corresponding Activity data
+
 
     // return the data, formatted and conditionally
     return(
         <div className="rightTile">
             {globalCity ? ( // if global city has value
                 <>
-                    <h1 className="heaader">Local activities around <br/> {globalCity}</h1>
-                    {activityData ? ( // if the API returned something
-                        
-                        activityData.features.length !== 0 ? ( // if the API returned non-zero amounts of activities
-                            activityData.features.map((feature) => 
-                                <Activity activityData={feature} />
-                            )
-                        ) : ( // if the API returned, but with an empty list, which  means there are no activities there
-                            <p>No activities found. Search again or try a different city.</p>
-                        )
-                    ) : ( // if the API has not returned anything yet (no call has been made yet, because user has not searched for a city yet)
-                        <p>Search for a city to display activity data.</p>
+                    <h1 className="header">Local activities around <br/> {globalCity}</h1>
+                    {loading ? (
+                        <Lottie animationData={Loading}/>
+                    ) : (
+                        <div className="scrollable">
+                            {activityData ? ( // if the API returned something
+                                
+                                activityData.features.length !== 0 ? ( // if the API returned non-zero amounts of activities
+                                    activityData.features.map((feature) => 
+                                        <Activity activityData={feature} />
+                                    )
+                                ) : ( // if the API returned, but with an empty list, which  means there are no activities there
+                                    <p>No activities found. Search again or try a different city.</p>
+                                )
+                            ) : ( // if the API has not returned anything yet (no call has been made yet, because user has not searched for a city yet)
+                                <p>Search for a city to display activity data.</p>
+                            )}
+                        </div>
                     )}
                 </>
             ): ( // if global city does not have a value (user has not searched for a city yet)
@@ -93,10 +107,9 @@ const Activity = ({activityData}) => {
     const [seeMore, setSeeMore] = useState(false);
     return(
         <section className="activityData">
-            <hr></hr>
             <h2>{activityData["properties"]["name"]}</h2>
             <p>
-                <a href={activityData["properties"]["website"]} target="_blank" rel="noreferrer">Their website</a><br/>
+                <a href={activityData["properties"]["website"]} target="_blank" rel="noreferrer">Visit website</a><br/><br/>
                 Address: {activityData["properties"]["formatted"]}<br/>
             </p>
         </section>

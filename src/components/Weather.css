@@ -1,0 +1,62 @@
+.mainTile{
+    position: absolute;
+    left: 2.5em;
+    top: 1.5em;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+
+    width: 55em;
+    height: 30em;
+    padding: 10px;
+    gap: 10px;
+
+    color: aliceblue;
+    border-radius: 40px;
+    background: #022449;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+form{
+    text-align: center;
+}
+
+.inputField{
+    margin-top: 0.5em;
+
+    color: #022449;
+    font-family: Itim;
+    font-size: 1.5em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    
+    width: 100%;
+    max-width: 30em;
+    height: 1em;
+    border-radius: 75px;
+    background: #F27D42;
+}
+
+::placeholder{
+    color: #022449;
+}
+
+button{
+    color: #022449;
+    font-weight: bold;
+    background-color: #F27D42;
+    padding:5px 10px;
+    border-radius: 20px;
+    border: none;
+    height: 2em;
+    margin-left: 0.5em;
+}
+
+.weatherData{
+    text-align: center;
+    fill: linear-gradient(180deg, #62A1FF 0%, rgba(11, 98, 227, 0.00) 100%), #34C8E9;
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+}
