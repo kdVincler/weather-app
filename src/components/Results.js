@@ -63,11 +63,11 @@ const Results = ({city, setGlobalCity}) => {
                         <h1 className="Rname">{weatherData.name}</h1>
                         <div className="sun_div">
                             <div className="sun">
-                                <img src={sunrise} className="sun_icon"></img>
+                                <img src={sunrise} className="sun_icon" alt="sunrise"></img>
                                 <p className="sun_text">{convertTimeStampToDate(weatherData.sys.sunrise, weatherData.timezone)}</p>
                             </div>
                             <div className="sun">
-                                <img src={sunset} className="sun_icon"></img>
+                                <img src={sunset} className="sun_icon" alt="sunset"></img>
                                 <p className="sun_text">{convertTimeStampToDate(weatherData.sys.sunset, weatherData.timezone)}</p>
                             </div>
                         </div>
