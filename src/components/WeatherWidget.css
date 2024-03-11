@@ -12,10 +12,14 @@
     height: 29rem;
     width:  53rem;
     margin-top: 3.5rem;
-    margin-left: 4.5rem;
+    margin-left: 3rem;
 }
 
-
+@media (max-width: 1340px){
+    .back{
+        margin-left: 2.5rem;
+    }
+}
 
 
 @media (max-width: 1300px){
