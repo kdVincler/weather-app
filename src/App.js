@@ -2,11 +2,13 @@ import './App.css';
 import { useState } from 'react';
 import Activities from './components/Activities';
 import WeatherWidget from './components/WeatherWidget';
+import LocalAlarm from './components/LocalAlarm';
 
 function App() {
   // globalCity state is here, so outher components have access to it 
   // but it doesn't get updated at every keystroke like the Weather component's city prop
   const [globalCity, setGlobalCity] = useState('');
+  const [globalWeatherData, setGlobalWeatherData] = useState(null);
   return (
     <div className="App">
       {/* Any component call has to be in this div!!!! VERY IMPORTANT 
@@ -20,8 +22,12 @@ function App() {
         <br />
       </p>
       */}
-      <WeatherWidget setGlobalCity={setGlobalCity}/>
+      <WeatherWidget 
+        setGlobalCity={setGlobalCity}
+        setGlobalWeatherData={setGlobalWeatherData}
+      />
       <Activities globalCity={globalCity} />
+      <LocalAlarm globalWeatherData={globalWeatherData}/>
     </div>
   );
 }

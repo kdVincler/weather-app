@@ -1,0 +1,8 @@
+.local-alarm {
+    background-color: coral;
+
+    width: 27rem;
+    height: 10rem;
+
+    border-radius: 2rem;
+}

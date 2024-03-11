@@ -5,7 +5,7 @@ import Results from './Results';
 import React, { useState } from 'react';
 
 
-const WeatherWidget = ({setGlobalCity}) => {
+const WeatherWidget = ({setGlobalCity, setGlobalWeatherData}) => {
     const [city, setCity] = useState('');
 
     const handleCitySubmit = (newCity) => {
@@ -16,7 +16,7 @@ const WeatherWidget = ({setGlobalCity}) => {
         <div className='container'>
             <div className='back'>
                 <SearchBar onCitySubmit={handleCitySubmit}/>
-                <Results city={city} setGlobalCity={setGlobalCity}/>
+                <Results city={city} setGlobalCity={setGlobalCity} setGlobalWeatherData={setGlobalWeatherData}/>
             </div>
 
         </div>

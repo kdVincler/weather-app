@@ -9,7 +9,7 @@ import sunset from './sunset.svg';
 import pressure from './pressure.svg';
 import wind from './wind.svg';
 
-const Results = ({city, setGlobalCity}) => {
+const Results = ({city, setGlobalCity, setGlobalWeatherData}) => {
     const [weatherData, setWeatherData] = useState(null);
 
     const fetchData = async () => {
@@ -18,6 +18,7 @@ const Results = ({city, setGlobalCity}) => {
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=13f35ad8d3b3a5c1d90cbb7e1977e2cf`
             );
             setWeatherData(response.data);
+            setGlobalWeatherData(response.data);
             setGlobalCity(response.data.name);
         }
         catch (error){
