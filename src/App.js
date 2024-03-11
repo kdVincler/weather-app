@@ -22,7 +22,7 @@ function App() {
         <br />
       </p>
       */}
-      <div>
+      <div className='weather'>
         <WeatherWidget 
           setGlobalCity={setGlobalCity}
           setGlobalWeatherData={setGlobalWeatherData}
