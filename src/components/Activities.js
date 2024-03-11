@@ -107,7 +107,6 @@ const Activities = ({globalCity}) => {
 
 // Function to streamline the look of each displayed activity, and make it easier to display as many as we want
 const Activity = ({activityData}) => {
-    const [seeMore, setSeeMore] = useState(false);
     return(
         <section className="activityData">
             <h2>{activityData["properties"]["name"]}</h2>

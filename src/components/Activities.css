@@ -45,8 +45,6 @@
 }
 
 
-
-
 .activityData {
     margin-left: 2.5%;
     margin-right: 2.5%;
@@ -63,5 +61,14 @@
     margin-top: 5rem;
     height: 18rem;
     width: auto;
+}
+
+@media (max-width: 1300px){
+    .rightTile{
+        width: 20rem;
+    }
+    .header{
+        font-size: 1.4rem;
+    }
 }
 
