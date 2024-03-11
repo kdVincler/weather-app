@@ -18,6 +18,20 @@
     margin-bottom: 6rem;
 
 }
+::-webkit-scrollbar{
+    width: 0.7rem;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #96FFFF;
+    border-radius: 2rem;
+    padding: 1rem;
+    
+    
+}
+::-webkit-scrollbar-track{
+    background-color: #61CAD7;
+
+}
 
 @media (max-width: 1300px){
     .App{
