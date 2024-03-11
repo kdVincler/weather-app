@@ -3,6 +3,7 @@ import axios from "axios";
 import './Activities.css';
 import Lottie from 'lottie-react';
 import Loading from "./Loading.json";
+import Outdoor from "./Outdoor.svg";
 
 const Activities = ({globalCity}) => {
     const [lon, setLon] = useState(null) // longtitude variable
@@ -93,8 +94,10 @@ const Activities = ({globalCity}) => {
                 </>
             ): ( // if global city does not have a value (user has not searched for a city yet)
                 <>
-                    <h1 className="heaader">Local activities</h1>
-                    <p>Search for a location to get activity data</p>
+                    <h1 className="header">Local activities</h1>
+                    <p>Search for a location to get local activities</p>
+                    <img src={Outdoor} alt="outdoor activities" className="outdoor"></img>
+
                 </>
             )}
         </div>
