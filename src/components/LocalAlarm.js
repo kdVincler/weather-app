@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import './LocalAlarm.css';
+import pendingPic from './pending_alarm.svg';
+import safePic from './safe_alarm.svg';
+import dangerousPic from './dangerous_alarm.svg';
 
 function isExtremeWeather(id) {
     if (200 <= id && id <= 299)
@@ -12,23 +15,38 @@ function isExtremeWeather(id) {
 }
 
 const Safe =
-    <div>
-        You are safe!
+    <div className="safe">
+        <div className="flexContainer">
+            <p>No extreme weather expected.</p>
+            <img src={safePic} alt="safe alarm picture"></img>
+        </div>
     </div>;
 
 const Dangerous = (data) => 
-    <div>
-        Watch out!!!
+    <div className="dangerous">
+        <div className="flexContainer">
+            <p>Extreme weather expected! Seek shelter!</p>
+            <img src={dangerousPic} alt="dangerous alarm picture"></img>
+        </div>
     </div>;
 
 const LocalAlarm = ({globalWeatherData}) => {
     if (globalWeatherData == null)
-        return <div className="local-alarm">Pending...</div>;
+        return (
+        <div className="local-alarm">
+            <h1 className="localHeader">Local weather alarm</h1>
+            <div className="flexContainer">
+                <p>Search for a location to get local weather alarm</p>
+                <img src={pendingPic} alt="pending alarm picture"></img>
+            </div>
+        </div>
+        );
 
     const extremeWeathers = globalWeatherData.weather.filter(w => isExtremeWeather(w.id));
 
     return (
         <div className="local-alarm">
+            <h1 className="localHeader">Local weather alarm around {globalWeatherData.name}</h1>
             {extremeWeathers.length > 0 ? Dangerous(extremeWeathers) : Safe}
         </div>
     );

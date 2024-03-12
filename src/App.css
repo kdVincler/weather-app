@@ -1,6 +1,4 @@
-/*body {
-    background: linear-gradient(180deg, #C8EFF4 0%, rgba(200, 239, 244, 0.00) 16.5%), linear-gradient(180deg, rgba(2, 36, 73, 0.00) 53%, #022449 100%), #34A8B7;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 .App{
     display: flex;
@@ -33,8 +31,97 @@
 
 }
 
+/* Vineji's styling, left as comment for backup
 @media (max-width: 1300px){
     .App{
         gap: 2rem;
+    }
+} */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .App {
+        flex-direction: column;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        gap: 1rem;
+    }
+
+    .weather {
+        margin-bottom: 0;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .App {
+        flex-direction: column;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        gap: 2rem;
+    }
+
+    .weather {
+        margin-bottom: 0;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .App {
+        flex-direction: column;
+        margin-left: 3rem;
+        margin-right: 3rem;
+        gap: 3rem;
+    }
+
+    .weather {
+        margin-bottom: 0;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .App {
+        flex-direction: column;
+        margin-left: 4rem;
+        margin-right: 4rem;
+        gap: 4rem;
+    }
+
+    .weather {
+        margin-bottom: 0;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .App {
+        flex-direction: row;
+        margin-left: 1rem;
+        gap: 1.5rem;
+    }
+
+    .weather{
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .App{
+        display: flex;
+        flex-direction: row;
+        gap: 4.5rem;
+    }
+
+    .weather{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 6rem;
+        margin-left: 3rem;
+        margin-left: 1.5rem;
     }
 }

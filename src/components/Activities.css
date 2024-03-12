@@ -92,6 +92,35 @@
     }
 }
 
+/* Large devices (laptops/desktops, 992px and up) 
+THIS IS WHERE IT'S CHANGED TO COLOUMN */
+@media only screen and (min-width: 992px) {
+    .rightTile{
+        width: 40rem;
+        align-self: center;
+    }
+}
 
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .rightTile{
+        width: 43rem;
+        align-self: center;
+    }
+}
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .rightTile{
+        width: 33rem;
+        align-self: center;
+    }
+}
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .rightTile{
+        width: 30rem;
+        align-self: center;
+    }
+}
