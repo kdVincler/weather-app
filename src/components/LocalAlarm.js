@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import './LocalAlarm.css';
 import pendingPic from './pending_alarm.svg';
 import safePic from './safe_alarm.svg';
@@ -7,7 +6,7 @@ import dangerousPic from './dangerous_alarm.svg';
 function isExtremeWeather(id) {
     if (200 <= id && id <= 299)
         return true;
-    if (id == 621 || id == 622)
+    if (id === 621 || id === 622)
         return true;
     if (762 <= id && id <= 781)
         return true;
@@ -17,27 +16,27 @@ function isExtremeWeather(id) {
 const Safe =
     <div className="safe">
         <div className="flexContainer">
-            <p>No extreme weather expected.</p>
-            <img src={safePic} alt="safe alarm picture"></img>
+            <p>No extreme weather detected.</p>
+            <img src={safePic} alt="safe alarm"></img>
         </div>
     </div>;
 
 const Dangerous = (data) => 
     <div className="dangerous">
         <div className="flexContainer">
-            <p>Extreme weather expected! Seek shelter!</p>
-            <img src={dangerousPic} alt="dangerous alarm picture"></img>
+            <p>Extreme weather detected! Seek shelter!</p>
+            <img src={dangerousPic} alt="dangerous alarm"></img>
         </div>
     </div>;
 
 const LocalAlarm = ({globalWeatherData}) => {
-    if (globalWeatherData == null)
+    if (globalWeatherData === null)
         return (
         <div className="local-alarm">
             <h1 className="localHeader">Local weather alarm</h1>
             <div className="flexContainer">
                 <p>Search for a location to get local weather alarm</p>
-                <img src={pendingPic} alt="pending alarm picture"></img>
+                <img src={pendingPic} alt="pending alarm"></img>
             </div>
         </div>
         );
