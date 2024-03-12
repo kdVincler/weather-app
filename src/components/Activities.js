@@ -72,7 +72,7 @@ const Activities = ({globalCity}) => {
         <div className="rightTile">
             {globalCity ? ( // if global city has value
                 <>
-                    <h1 className="header">Local activities around <br/> {globalCity}</h1>
+                    <h1 className="header">Local activities around {globalCity}</h1>
                     {loading ? (
                         <Lottie animationData={Loading}/>
                     ) : (

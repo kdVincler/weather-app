@@ -7,7 +7,7 @@
     flex-direction: column;
     flex-shrink: 0;
     margin-top: 3rem;
-    align-items: center;
+
 
 
     width: 25rem;
@@ -23,6 +23,7 @@
 }
 .header{
     color: #022449;
+    margin-left: 1rem;
 }
 .scrollable{
     overflow-y: auto;
