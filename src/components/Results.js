@@ -112,7 +112,7 @@ const Results = ({city, setGlobalCity, setGlobalWeatherData}) => {
         </div>
     );
 
-          
+    
 };
     
     

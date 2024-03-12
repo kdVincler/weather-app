@@ -21,6 +21,16 @@
 }
 
 
+@media (max-width: 1300px){
+    .back{
+        height: auto;
+        width:  48rem;
+        margin-top: 3rem;
+        margin-left: 2rem;
+        padding-bottom: 1.5rem;
+    }
+
+}
 
 @media (max-width: 1200px){
     .back{
