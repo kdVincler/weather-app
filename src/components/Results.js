@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import '../css/Results.css';
 import wIcon from '../images/wIcon.svg';
 import thermometer from '../images/thermometer.svg';
+import '../css/Results.css';
 import humidity from '../images/humidity.svg';
 import sunrise from '../images/sunrise.svg';
 import sunset from '../images/sunset.svg';
@@ -81,7 +81,7 @@ const Results = ({city, setGlobalCity, setGlobalWeatherData}) => {
                         </div>
                         <div className="card"> 
                             <p className="card_title">Description</p>
-                            <img alt="description" src={`https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} className='desc_icon'></img>
+                            <img alt="description" src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} className='desc_icon'></img>
                             <p className="desc_text" >{splitWords(weatherData.weather[0].description)[0]} <br/>{splitWords(weatherData.weather[0].description)[1]} </p>
                         </div>
                         <div className="card"> 
@@ -112,7 +112,7 @@ const Results = ({city, setGlobalCity, setGlobalWeatherData}) => {
         </div>
     );
 
-    
+          
 };
     
     
