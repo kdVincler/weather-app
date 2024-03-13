@@ -1,5 +1,5 @@
-import './App.css';
 import { useState } from 'react';
+import './css/App.css';
 import Activities from './components/Activities';
 import WeatherWidget from './components/WeatherWidget';
 import LocalAlarm from './components/LocalAlarm';

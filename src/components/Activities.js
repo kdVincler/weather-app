@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import './Activities.css';
 import Lottie from 'lottie-react';
-import Loading from "./Loading.json";
-import Outdoor from "./Outdoor.svg";
+import '../css/Activities.css';
+import Loading from "../images/Loading.json";
+import Outdoor from "../images/Outdoor.svg";
 
 const Activities = ({globalCity}) => {
     const [lon, setLon] = useState(null) // longtitude variable

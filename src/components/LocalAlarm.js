@@ -1,7 +1,7 @@
-import './LocalAlarm.css';
-import pendingPic from './pending_alarm.svg';
-import safePic from './safe_alarm.svg';
-import dangerousPic from './dangerous_alarm.svg';
+import '../css/LocalAlarm.css';
+import pendingPic from '../images/pending_alarm.svg';
+import safePic from '../images/safe_alarm.svg';
+import dangerousPic from '../images/dangerous_alarm.svg';
 
 function isExtremeWeather(id) {
     if (200 <= id && id <= 299)

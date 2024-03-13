@@ -1,7 +1,7 @@
 
 import React, {useState} from "react";
-import './SearchBar.css';
-import icon from './logo.svg';
+import '../css/SearchBar.css';
+import icon from '../images/logo.svg';
 
 
 

@@ -1,8 +1,7 @@
-
-import './WeatherWidget.css';
+import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import Results from './Results';
-import React, { useState } from 'react';
+import '../css/WeatherWidget.css';
 
 
 const WeatherWidget = ({setGlobalCity, setGlobalWeatherData}) => {

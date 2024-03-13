@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import wIcon from './wIcon.svg';
-import thermometer from './thermometer.svg';
-import './Results.css';
-import humidity from './humidity.svg';
-import sunrise from './sunrise.svg';
-import sunset from './sunset.svg';
-import pressure from './pressure.svg';
-import wind from './wind.svg';
+import '../css/Results.css';
+import wIcon from '../images/wIcon.svg';
+import thermometer from '../images/thermometer.svg';
+import humidity from '../images/humidity.svg';
+import sunrise from '../images/sunrise.svg';
+import sunset from '../images/sunset.svg';
+import pressure from '../images/pressure.svg';
+import wind from '../images/wind.svg';
 
 const Results = ({city, setGlobalCity, setGlobalWeatherData}) => {
     const [weatherData, setWeatherData] = useState(null);
