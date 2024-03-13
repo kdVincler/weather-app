@@ -10,7 +10,7 @@ const Activities = ({globalCity}) => {
     const [lat, setLat] = useState(null) // latitude variable
     const [placeID, setPlaceID] = useState(null) // placeID variable
     const [activityData, setActivityData] = useState(null); // Return from the API with activities for the given location
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true) // variable to indicate if we are still waiting for a reply from the API
 
     const fetchCoords = async () => {
         try {
@@ -19,10 +19,12 @@ const Activities = ({globalCity}) => {
             `
             );
             // This is Konrad's API key, make sure to replace it with your own.
+
+            // set data variables
             setLon(response.data.results[0].lon);
             setLat(response.data.results[0].lat);
             setPlaceID(response.data.results[0].place_id);
-            setLoading(false);
+            setLoading(false); // indicte loading is finished (reply from the API arrived)
 
             // DEBUGGING CODE
             // console.log(response.data.results[0].place_id)
@@ -39,7 +41,7 @@ const Activities = ({globalCity}) => {
     };
 
     useEffect(() => {
-        setLoading(true);
+        setLoading(true); // indicate loading has started (we are waiting for a reply from the API)
         fetchCoords();
     }, [globalCity]); // any time the city that is searched for changes, fethch it's coordinates
 
@@ -52,9 +54,12 @@ const Activities = ({globalCity}) => {
             );
             // This is Konrad's API key, make sure to replace it with your own. (or better yet, implement env files for API keys)
             // it only returns 4 activities at max, so that the app does not become too crowded with data
-            setActivityData(response.data)
-            setLoading(false);
-            console.log(response.data)
+
+            setActivityData(response.data) // set data variable
+            setLoading(false); // indicte loading is finished (reply from the API arrived)
+
+            // DEBUGGING CODE
+            //console.log(response.data)
         }
         catch (error) {
             console.error(error);
@@ -73,7 +78,7 @@ const Activities = ({globalCity}) => {
             {globalCity ? ( // if global city has value
                 <>
                     <h1 className="header">Local activities around {globalCity}</h1>
-                    {loading ? (
+                    {loading ? ( // if we are still loading, display loading animation
                         <Lottie animationData={Loading}/>
                     ) : (
                         <div className="scrollable">

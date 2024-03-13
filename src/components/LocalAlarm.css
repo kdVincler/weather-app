@@ -46,13 +46,14 @@
 @media (max-width: 1200px){
     .local-alarm{
         width:  44rem;
+        margin-left: 0rem;
     }
 }
 
 @media (max-width: 1100px){
     .local-alarm{
         width:  40rem;
-        margin-left: 3rem;
+        margin-left: 0rem;
     }
 }
 

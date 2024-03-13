@@ -10,9 +10,6 @@
     width: 25rem;
     height: 42rem;
 
-    margin-bottom: 2rem;
-
-
     padding: 1rem;
     gap: 0rem;
 
@@ -64,46 +61,10 @@
     width: auto;
 }
 
-@media (max-width: 1400px){
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
     .rightTile{
-        width: 20rem;
-    }
-}
-
-@media (max-width: 1350px){
-    .rightTile{
-        width: 18rem;
-    }
-}
-@media (max-width: 1300px){
-    .rightTile{
-        width: 19rem;
-    }
-}
-@media (max-width: 1250px){
-    .rightTile{
-        width: 20rem;
-    }
-}
-@media (max-width: 1200px){
-    .rightTile{
-        width: 18rem;
-    }
-}
-
-/* Large devices (laptops/desktops, 992px and up) 
-THIS IS WHERE IT'S CHANGED TO COLOUMN */
-@media only screen and (min-width: 992px) {
-    .rightTile{
-        width: 40rem;
-        align-self: center;
-    }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-    .rightTile{
-        width: 43rem;
+        width: 30rem;
         align-self: center;
     }
 }
@@ -116,10 +77,60 @@ THIS IS WHERE IT'S CHANGED TO COLOUMN */
     }
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
     .rightTile{
-        width: 30rem;
+        width: 43rem;
         align-self: center;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) 
+THIS IS WHERE IT'S CHANGED TO COLOUMN */
+@media only screen and (min-width: 992px) {
+    .rightTile{
+        width: 40rem;
+        align-self: center;
+    }
+}
+
+@media (min-width: 1200px){
+    .rightTile{
+        width: 18rem;
+        margin-bottom: 0rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 1250px){
+    .rightTile{
+        width: 20rem;
+        margin-bottom: 0rem;
+        margin-top: 1rem;
+    }
+}
+
+
+@media (min-width: 1300px){
+    .rightTile{
+        width: 19rem;
+        margin-bottom: 2rem;
+        margin-top: 0rem;
+    }
+}
+
+@media (min-width: 1350px){
+    .rightTile{
+        width: 20rem;
+        margin-bottom: 2rem;
+        margin-top: 0rem;
+    }
+}
+
+@media (min-width: 1400px){
+    .rightTile{
+        width: 28rem;
+        margin-bottom: 2rem;
+        margin-top: 0rem;
     }
 }
