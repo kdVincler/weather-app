@@ -64,7 +64,7 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .rightTile{
-        width: 30rem;
+        width: 31rem;
         align-self: center;
     }
 }
@@ -83,6 +83,10 @@
         width: 43rem;
         align-self: center;
     }
+    .header{
+        font-size: 2rem;
+    }
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) 
@@ -91,6 +95,10 @@ THIS IS WHERE IT'S CHANGED TO COLOUMN */
     .rightTile{
         width: 40rem;
         align-self: center;
+        margin-top: 1rem;
+    }
+    .header{
+        font-size: 1.4rem;
     }
 }
 
@@ -100,6 +108,9 @@ THIS IS WHERE IT'S CHANGED TO COLOUMN */
         margin-bottom: 0rem;
         margin-top: 2rem;
     }
+    .header{
+        font-size: 1.6rem;
+    }
 }
 
 @media (min-width: 1250px){
@@ -107,6 +118,9 @@ THIS IS WHERE IT'S CHANGED TO COLOUMN */
         width: 20rem;
         margin-bottom: 0rem;
         margin-top: 2rem;
+    }
+    .header{
+        font-size: 1.6rem;
     }
 }
 
@@ -117,6 +131,10 @@ THIS IS WHERE IT'S CHANGED TO COLOUMN */
         margin-bottom: 2rem;
         margin-top: 0rem;
     }
+    .header{
+        font-size: 1.5rem;
+    }
+
 }
 
 @media (min-width: 1350px){
@@ -124,6 +142,9 @@ THIS IS WHERE IT'S CHANGED TO COLOUMN */
         width: 20rem;
         margin-bottom: 2rem;
         margin-top: 0rem;
+    }
+    .header{
+        font-size: 1.7rem;
     }
 }
 

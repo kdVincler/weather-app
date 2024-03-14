@@ -87,11 +87,12 @@
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .App {
-        flex-direction: column;
-        margin-left: 4rem;
-        margin-right: 4rem;
-        gap: 4rem;
+        flex-direction: row;
+        margin-left: 2rem;
+        margin-right: 1rem;
+        gap: 2rem;
         margin-bottom: 2rem;
+        margin-top: 0rem;
     }
 
     .weather {
@@ -104,8 +105,8 @@
 @media only screen and (min-width: 1200px) {
     .App {
         flex-direction: row;
-        margin-left: 1rem;
-        margin-right: 1rem;
+        margin-left: 0rem;
+        margin-right: 2rem;
         gap: 3rem;
         margin-bottom: 0rem;
     }

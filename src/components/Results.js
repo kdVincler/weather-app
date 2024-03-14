@@ -10,19 +10,19 @@ import pressure from '../images/pressure.svg';
 import wind from '../images/wind.svg';
 
 const Results = ({city, setGlobalCity, setGlobalWeatherData}) => {
-    const [weatherData, setWeatherData] = useState(null);
+    const [weatherData, setWeatherData] = useState(null); // This is the variable which will store the weather data in a JSON format
 
     const fetchData = async () => {
         try {
             const response = await axios.get(
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=13f35ad8d3b3a5c1d90cbb7e1977e2cf`
-            );
+            ); // This is Vineji's API key
             setWeatherData(response.data);
             setGlobalWeatherData(response.data);
-            setGlobalCity(response.data.name);
+            setGlobalCity(response.data.name); // This stores the city name in order to find the local activites in the city.
         }
         catch (error){
-            console.error(error);
+            console.error(error); // If an invalid city is entered an alert will show up to indicate thi.
             setWeatherData(null);
             alert("invalid town or city");
         }
@@ -30,14 +30,14 @@ const Results = ({city, setGlobalCity, setGlobalWeatherData}) => {
 
     useEffect(() => {
         if (city){
-            fetchData();
+            fetchData(); // if the city exists it calls the fetchData function
         }
     }, [city]);
 
-    const convertTimeStampToDate = (timestamp, timezone) => {
+    const convertTimeStampToDate = (timestamp, timezone) => { 
         const dateObject = new Date(timestamp * 1000)
         const timeObject = timezone / 60;
-
+        // this is a method I put in to convert the time stamp from the API into real time in order to get the time of sunset and sunrise
         dateObject.setMinutes(dateObject.getMinutes() + timeObject);
 
         return dateObject.toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric', hour12: false});
@@ -47,12 +47,13 @@ const Results = ({city, setGlobalCity, setGlobalWeatherData}) => {
         const compass = ['North','North East','East','South East','South','South West','West','North West'];
         const index = Math.round(deg / 45) % 8;
         return compass[index];
+        // this a method I put in to get the compass direction of the wind by using the angle returned by the API as an arguments
     };
 
     const splitWords = (description) => {
         const arr = description.split(" ");
         return arr
-
+        // this is a method I put in to spilt description from the API into an array of words to show them in different line
     };
 
     
@@ -61,8 +62,8 @@ const Results = ({city, setGlobalCity, setGlobalWeatherData}) => {
             {weatherData ? (
                 <section >
                     <div className="resultsHeader">
-                        <h1 className="Rname">{weatherData.name}</h1>
-                        <div className="sun_div">
+                        <h1 className="Rname">{weatherData.name}</h1> {/* shows name of city */}
+                        <div className="sun_div"> {/* shows the sunrise and sunset in the time of the cities region  */}
                             <div className="sun">
                                 <img src={sunrise} className="sun_icon" alt="sunrise"></img>
                                 <p className="sun_text">{convertTimeStampToDate(weatherData.sys.sunrise, weatherData.timezone)}</p>
@@ -75,27 +76,28 @@ const Results = ({city, setGlobalCity, setGlobalWeatherData}) => {
                     </div>
                     <div className="data">
                         <div className="card"> 
-                            <p className="card_title">Temperature</p>
+                            <p className="card_title">Temperature</p> {/* shows the temperature */}
                             <img src={thermometer} alt="temperature" className='thermometer'></img>
                             <p className="temp_text">{weatherData.main.temp}&deg;C</p>
                         </div>
                         <div className="card"> 
-                            <p className="card_title">Description</p>
+                            <p className="card_title">Description</p> {/* shows the description of the weather */}
+                            {/* This is an API used to get a weather icon that corresponds with the description */}
                             <img alt="description" src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} className='desc_icon'></img>
                             <p className="desc_text" >{splitWords(weatherData.weather[0].description)[0]} <br/>{splitWords(weatherData.weather[0].description)[1]} </p>
                         </div>
                         <div className="card"> 
-                            <p className="card_title">Humidity</p>
+                            <p className="card_title">Humidity</p> {/* shows the humidity */}
                             <img src={humidity} className='humidity' alt="humidity"></img>
                             <p className="temp_text">{weatherData.main.humidity}%</p>
                         </div>
                         <div className="card"> 
-                            <p className="card_title">Pressure</p>
+                            <p className="card_title">Pressure</p> {/* shows the pressure  */}
                             <img src={pressure} className='pressure' alt="pressure"></img>
                             <p className="temp_text">{weatherData.main.pressure} mb</p>
                         </div>
                         <div className="card"> 
-                            <p className="card_title">Wind</p>
+                            <p className="card_title">Wind</p> {/* shows the wind speed and direction */}
                             <img src={wind} className='wind' alt="wind"></img>
                             <p className="wind_div">{weatherData.wind.speed} m/s<br/> {degreeToCompass(weatherData.wind.deg)} </p>
                         </div>
@@ -104,7 +106,7 @@ const Results = ({city, setGlobalCity, setGlobalWeatherData}) => {
                 </section>
             ) : (
                 <section>
-                    <img src={wIcon} className='wIcon' alt="loading"></img>
+                    <img src={wIcon} className='wIcon' alt="weather"></img> {/* this is the default icon when the is no input */}
                 </section>
 
             )

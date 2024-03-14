@@ -24,7 +24,7 @@ const Activities = ({globalCity}) => {
             setLon(response.data.results[0].lon);
             setLat(response.data.results[0].lat);
             setPlaceID(response.data.results[0].place_id);
-            setLoading(false); // indicte loading is finished (reply from the API arrived)
+            setLoading(false); // indicate loading is finished (reply from the API arrived)
 
             // DEBUGGING CODE
             // console.log(response.data.results[0].place_id)
@@ -43,7 +43,7 @@ const Activities = ({globalCity}) => {
     useEffect(() => {
         setLoading(true); // indicate loading has started (we are waiting for a reply from the API)
         fetchCoords();
-    }, [globalCity]); // any time the city that is searched for changes, fethch it's coordinates
+    }, [globalCity]); // any time the city that is searched for changes, fetch it's coordinates
 
     const fetchActivities = async () => {
         try {
