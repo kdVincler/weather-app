@@ -88,3 +88,10 @@
         width:  33rem;
     }
 }
+
+@media (max-width: 500px){
+    .back{
+        height: auto;
+        width:  100%;
+    }
+}

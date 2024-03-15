@@ -89,3 +89,9 @@
         width:  33rem;
     }
 }
+
+@media (max-width: 500px){
+    .local-alarm{
+        width: 97%;
+    }
+}

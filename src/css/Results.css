@@ -419,3 +419,53 @@
         font-size: 0.9rem;
     }
 }
+
+@media (max-width: 500px){
+    .wIcon{
+        margin-left: 0;
+        margin: 0 auto;
+    }
+    .data{
+        gap: 2%;
+        margin-left: 1%;
+
+    }
+
+    .Rname{
+        margin-left: 4%;
+        width: 23%;
+    }
+    .card_title{
+        font-size: 75%;
+    }
+    .card{
+        width: 16%;
+        height: 23vh;
+        gap: 10%;
+    }
+    .desc_text{
+        font-size: 1.85vh;
+        margin-top: 0;
+    }
+    .wind_div{
+        font-size: 1.5vh;
+        margin-left: 5%;
+    }
+    .sun_text{
+        font-size: 1.85vh;
+    }
+
+    .temp_text{
+        font-size: 1.85vh;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .desc_icon {
+        height: 35%;
+    }
+
+    .wind {
+        height: 30%;
+    }
+}

@@ -124,6 +124,26 @@ img{
     }
 }
 
+@media (max-width: 500px){
+    .search{
+        width: 80%;
+        height:15%;
+        margin-left: 5%;
+    }
+
+    .searchButton{
+        width: 11%;
+        height: 15%;
+        margin-right: 5%;
+    }
+
+    input::placeholder{
+        font-size: 4vw;
+        padding-left: 1%;
+        padding-top: 2%;
+    }
+}
+
 
 
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');

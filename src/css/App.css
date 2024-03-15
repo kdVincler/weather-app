@@ -52,6 +52,21 @@
     }
 }
 
+@media only screen and (max-width: 500px) {
+    .App {
+        flex-direction: column;
+        margin-left: 5%;
+        margin-right: 5%;
+        gap: 10vh;
+        margin-bottom: 10%;
+    }
+
+    .weather {
+        margin-bottom: 0;
+        margin-left: 0;
+    }
+}
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .App {
