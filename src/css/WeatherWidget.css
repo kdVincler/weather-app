@@ -89,9 +89,22 @@
     }
 }
 
-@media (max-width: 500px){
+@media (max-width: 540px){
     .back{
-        height: auto;
-        width:  100%;
+        width: 29rem;
     }
+    
+}
+
+@media (max-width: 495px) {
+    .back{
+        width: 26rem;
+    }
+    
+}
+@media (max-width: 440px) {
+    .back{
+        width: 22rem;
+    }
+    
 }

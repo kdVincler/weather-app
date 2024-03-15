@@ -124,24 +124,32 @@ img{
     }
 }
 
-@media (max-width: 500px){
+@media (max-width: 540px){
     .search{
-        width: 80%;
-        height:15%;
-        margin-left: 5%;
+        width: 21rem;
+        height: 2.5rem;
     }
-
     .searchButton{
-        width: 11%;
-        height: 15%;
-        margin-right: 5%;
+        width: 2.7rem;
+        height: 2.7rem;
     }
 
-    input::placeholder{
-        font-size: 4vw;
-        padding-left: 1%;
-        padding-top: 2%;
+}
+@media (max-width: 495px){
+    .search{
+        width: 18.7rem;
+        height: 2.5rem;
     }
+
+}
+
+@media (max-width: 440px){
+    .search{
+        width: 15rem;
+        height: 2.5rem;
+    }
+
+
 }
 
 
