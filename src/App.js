@@ -6,9 +6,12 @@ import LocalAlarm from './components/LocalAlarm';
 
 function App() {
   // globalCity state is here, so outher components have access to it 
-  // but it doesn't get updated at every keystroke like the Weather component's city prop
+  // but it doesn't get updated at every keystroke only on submit
   const [globalCity, setGlobalCity] = useState('');
   const [globalWeatherData, setGlobalWeatherData] = useState(null);
+
+  document.title = "Weather app" // sets the title of the page (hardcoded)
+
   return (
     <div className="App">
       {/* Any component call has to be in this div!!!! VERY IMPORTANT 
