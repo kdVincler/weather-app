@@ -147,6 +147,11 @@ img{
     .search{
         width: 15rem;
         height: 2.5rem;
+        font-size: 1.1rem;
+    }
+    input::placeholder{
+        font-size: 1.1rem;
+
     }
 
 

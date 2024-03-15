@@ -431,7 +431,10 @@
     .Rname{
         width: 11rem;
     }
-
+    .wIcon{
+        width: 20rem;
+        margin-left: 3rem;
+    }
     .card{
         flex-direction: row;
         width: 25rem;
@@ -468,6 +471,10 @@
         margin-left: 2.1rem;
         width: 20rem;
 
+    }
+    .wIcon{
+        width: 17rem;
+        margin-left: 4rem;
     }
     .Rname{
         width: 8rem;
@@ -526,6 +533,10 @@
         height: 5rem;
         gap: 1rem;
 
+    }
+    .wIcon{
+        width: 15rem;
+        margin-left: 2.6rem;
     }
     .card_title{
         font-size: 1.3rem;
