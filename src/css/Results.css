@@ -10,6 +10,7 @@
     margin-left: 2.5rem;
     font-family: 'Comfortaa', cursive;
     width: 26rem;
+
 }
 .sun{
     display: flex;
@@ -32,7 +33,6 @@
     font-family: 'Comfortaa', cursive;
     font-size: 1.1rem;
     color: #022449;
-    font-weight: bold;
 
 }
 .resultsHeader{
@@ -478,6 +478,8 @@
     }
     .Rname{
         width: 8rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
     }
     .card{
         width: 22rem;
@@ -520,7 +522,6 @@
     }
     .Rname{
         width: 5rem;
-        font-size: 1.3rem;
     }
     .sun_icon{
         width: 1.6rem;

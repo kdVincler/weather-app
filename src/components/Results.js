@@ -62,7 +62,7 @@ const Results = ({city, setGlobalCity, setGlobalWeatherData}) => {
             {weatherData ? (
                 <section >
                     <div className="resultsHeader">
-                        <h1 className="Rname">{weatherData.name}</h1> {/* shows name of city */}
+                        <text className="Rname">{weatherData.name}</text> {/* shows name of city */}
                         <div className="sun_div"> {/* shows the sunrise and sunset in the time of the cities region  */}
                             <div className="sun">
                                 <img src={sunrise} className="sun_icon" alt="sunrise"></img>
