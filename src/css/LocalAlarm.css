@@ -9,6 +9,7 @@
     border-radius: 2rem;
 
     font-family: 'Comfortaa', cursive;
+    color: #022449;
 }
 
 .flexContainer {
@@ -18,6 +19,7 @@
     padding-left: 3rem;
     padding-right: 3rem;
     align-items: center;
+    color: #022449;
 }
 
 .localHeader {
