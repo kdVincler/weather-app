@@ -3,7 +3,7 @@
 A weather app for outdoor enthusiasts.
 
 ---
-### Members
+### Contributors - GUI Group 84
 - Haonan Wang (t.wang@se22.qmul.ac.uk / ec22907)
 - Yusra Abubaker Warsame (y.warsame@se22.qmul.ac.uk / ec22892)
 - Konrad Vincler (k.d.vincler@se22.qmul.ac.uk / ec221017)
